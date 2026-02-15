@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine Rizqi Al💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Quicksand',sans-serif;
+    background: linear-gradient(135deg,#ff1493,#ff4da6,#ff85c1);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow-x:hidden;
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,20,147,0.6);
+    position:relative;
+    z-index:2;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:42px;
+    color:white;
+    text-shadow:0 0 15px rgba(255,255,255,0.9);
+}
+
+p{
+    color:white;
+    font-size:16px;
+    line-height:1.6;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    font-family:'Quicksand',sans-serif;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.pink{
+    background: linear-gradient(45deg,#ff0066,#ff3399);
+    color:white;
+}
+
+.white{
+    background:white;
+    color:#ff0066;
+}
+
+.section{
+    display:none;
+}
+
+.photo-grid{
+    margin-top:15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.photo-grid img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:15px;
+    border:3px solid rgba(255,255,255,0.8);
+}
+
+textarea{
+    width:100%;
+    height:80px;
+    border-radius:15px;
+    border:none;
+    padding:10px;
+    resize:none;
+    font-family:'Quicksand',sans-serif;
+    margin-top:15px;
+}
+
+/* BUNGA */
+.fall{
+    position:fixed;
+    top:-50px;
+    font-size:24px;
+    animation:fall linear infinite;
+    z-index:1;
+}
+
+@keyframes fall{
+    to{
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* TOMBOL MUSIK */
+#musicControl{
+    position:fixed;
+    top:15px;
+    right:15px;
+    padding:10px 15px;
+    border-radius:50px;
+    border:none;
+    background: rgba(255,255,255,0.5);
+    font-size:14px;
+    cursor:pointer;
+    z-index:3;
+    transition:0.3s;
+}
+
+#musicControl:hover{
+    background: rgba(255,255,255,0.8);
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="bgm" loop>
+    <source src="msk.mp3" type="audio/mpeg">
+    Browsermu tidak mendukung audio.
+</audio>
+
+<!-- TOMBOL PLAY/PAUSE -->
+<button id="musicControl" onclick="toggleMusic()">Play Musik 🎵</button>
+
+<div class="card">
+
+    <!-- STEP 1 -->
+    <div id="step1">
+        <h1>Happy Valentine Rizqi Al💖</h1>
+        <button class="pink" onclick="step2()">OK</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="section">
+        <h1>Will you be my Valentine?</h1>
+        <button class="pink" onclick="step3()">YES</button>
+        <button class="white" onclick="alert('Eits enggak kena 😜')">NO</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="section">
+        <h1>For You 💌</h1>
+        <p>
+        Happy Valentine!
+        Seneng banget punya kamu di hidup aku. Kamu bikin hari-hari aku lebih hangat, lebih ceria,
+        dan selalu bikin senyum. Semoga hari ini penuh cinta, kebahagiaan, dan momen-momen manis yang nggak terlupakan 💌🌹
+        </p>
+
+        <div class="photo-grid">
+            <img src="foto 2.jpeg">
+            <img src="foto 3.jpeg">
+            <img src="foto 4.jpeg">
+            <img src="foto 5.jpeg">
+        </div>
+
+        <button class="pink" onclick="step4()">RESPON 💌</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="section">
+        <h1>Respon Kamu 💕</h1>
+        <textarea id="pesanUser" placeholder="Tulis jawaban kamu di sini..."></textarea>
+        <button class="pink" onclick="kirimWA()">Kirim ke WhatsApp</button>
+    </div>
+
+</div>
+
+<script>
+let bgm = document.getElementById("bgm");
+let musicBtn = document.getElementById("musicControl");
+
+function toggleMusic(){
+    if(bgm.paused){
+        bgm.play();
+        musicBtn.textContent = "Pause Musik ⏸️";
+    } else {
+        bgm.pause();
+        musicBtn.textContent = "Play Musik 🎵";
+    }
+}
+
+function hideAll(){
+    document.getElementById("step1").style.display="none";
+    document.getElementById("step2").style.display="none";
+    document.getElementById("step3").style.display="none";
+    document.getElementById("step4").style.display="none";
+}
+
+function step2(){
+    hideAll();
+    document.getElementById("step2").style.display="block";
+}
+
+function step3(){
+    hideAll();
+    document.getElementById("step3").style.display="block";
+}
+
+function step4(){
+    hideAll();
+    document.getElementById("step4").style.display="block";
+}
+
+function kirimWA(){
+    let isi = document.getElementById("pesanUser").value;
+
+    if(isi.trim()===""){
+        alert("Isi dulu dong 😜");
+        return;
+    }
+
+    let nomorKamu="6281804369828"; // GANTI NOMOR KAMU
+    let pesan="Hai 💕 Ini respon aku:\n\n"+isi;
+
+    let link="https://wa.me/"+nomorKamu+"?text="+encodeURIComponent(pesan);
+    window.open(link,"_blank");
+}
+
+/* BUNGA BERJATUHAN */
+setInterval(()=>{
+    let bunga=["🌸","🌹","💗","🤍"];
+    let el=document.createElement("div");
+    el.className="fall";
+    el.innerHTML=bunga[Math.floor(Math.random()*bunga.length)];
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(Math.random()*4+4)+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>{el.remove();},150000);
+},200);
+</script>
+
+</body>
+</html>
